@@ -5,7 +5,7 @@ import { Alert} from 'react-native';
 import * as Location from 'expo-location';
 import Loading from './Loading';
 
-
+const API_KEY = 'e01567664ab7f7e555a8a40f4854cb8b';
 export default class extends React.Component {
 
   getLocation = async () => {
@@ -15,6 +15,7 @@ export default class extends React.Component {
       //const response = await Location.requestPermissionsAsync();-старый формат
       const {coords:{latitude, longitude}} = await Location.getCurrentPositionAsync();
       //Получения из свойств coords кардинаты по гориз и вертикали т.е. lattude longitude
+      console.log({coords:{latitude, longitude}})
       this.setState({isLoading: false});
 
     } catch (error) {
