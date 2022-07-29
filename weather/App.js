@@ -15,8 +15,11 @@ export default class extends React.Component {
       //const response = await Location.requestPermissionsAsync();-старый формат
       const {coords:{latitude, longitude}} = await Location.getCurrentPositionAsync();
       //Получения из свойств coords кардинаты по гориз и вертикали т.е. lattude longitude
+      this.setState({isLoading: false});
+
     } catch (error) {
       Alert.alert('Не могу определить местоположение', "Очень грустно :(");
+      //сообщение в случае если не получилось загрузить информацию
     }
   }
 
@@ -27,6 +30,7 @@ export default class extends React.Component {
   render () {
     return (
       <Loading />
+      //прорисовывает экран из loading.js
     );
   }
 }
